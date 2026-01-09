@@ -3,9 +3,10 @@
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+import time, random
 
 from .client import ApecClient
-from .storage import write_json
+from .storage import Database
 from .config import SEARCH_CONFIGS
 
 
@@ -83,24 +84,22 @@ def run_ingestion(config_name: str) -> dict[str, Any]:
 
 if __name__ == "__main__":
     results = {}
-    timestamp = datetime.now(timezone.utc).isoformat()
     
-    for config in SEARCH_CONFIGS.keys():
+    for i, config in enumerate(SEARCH_CONFIGS.keys()):
         print(f"Running ingestion for config: {config}")
         extracted = run_ingestion(config)
         results[config] = {
             "value": extracted["value"],
             "retrieved_at": extracted["retrieved_at"],
         }
+        if i < len(SEARCH_CONFIGS) - 1:
+            # sleep a random time between 0.5 and 2 seconds to avoid rate limiting
+            sleep_time = random.uniform(0.5, 2.0)
+            time.sleep(sleep_time)
     
-    # Write all results to single JSON file
-    timestamp_str = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
-    output_path = Path(f"data/raw/apec_all_metrics_{timestamp_str}.json")
+    # Save all results to database
+    db = Database()
+    db.save_metrics(results)
     
-    output_data = {
-        "retrieved_at": timestamp,
-        "metrics": results,
-    }
-    
-    write_json(output_data, output_path)
-    print(f"\n✓ Saved all metrics to {output_path}")
+    print(f"\n✓ Saved all metrics to database")
+    print(f"✓ Total configs processed: {len(results)}")

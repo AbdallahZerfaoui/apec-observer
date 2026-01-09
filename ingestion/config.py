@@ -36,6 +36,13 @@ SEARCH_CONFIGS = {
         "typeClient": "CADRE",
         "anciennetePublication": "101850", # last 24 hours
     },
+    "cadres_only_france_lst_7d": {
+        "lieux":["799"],  # France only
+        "statutPoste": ["143688", "143689"],  # only cadres
+        "typesConvention": ["143684", "143685", "143686", "143687", "143706"],  # 706=partenaires
+        "typeClient": "CADRE",
+        "anciennetePublication": "101851", # last 7 days
+    },
     "cadres_france_entreprises": {
         "lieux":["799"],  # France only
         "statutPoste": ["143688"],  # only cadres
@@ -64,6 +71,72 @@ SEARCH_CONFIGS = {
         "lieux":["799"],  # France only
         "statutPoste": ["143688"],  # only cadres
         "typesConvention": ["143706"],  # 706=partenaires
+        "typeClient": "CADRE",
+    },
+    "cadres_france_debutants": {
+        "lieux":["799"],  # France only
+        "statutPoste": ["143688"],  # only cadres
+        "niveauxExperience": ["101881"],  # 101881=debutants
+        "typeClient": "CADRE",
+    },
+    "cadres_france_3_5y": {
+        "lieux":["799"],  # France only
+        "statutPoste": ["143688"],  # only cadres
+        "niveauxExperience": ["20043"],  # 20043=3-5 years experience
+        "typeClient": "CADRE",
+    },
+    "cadres_france_6_9y": {
+        "lieux":["799"],  # France only
+        "statutPoste": ["143688"],  # only cadres
+        "niveauxExperience": ["20044"],  # 20044=6-9 years experience
+        "typeClient": "CADRE",
+    },
+    "cadres_france_10y_plus": {
+        "lieux":["799"],  # France only
+        "statutPoste": ["143688"],  # only cadres
+        "niveauxExperience": ["20045"],  # 20045=10+ years experience
+        "typeClient": "CADRE",
+    },
+    "cadres_france_20_30k": {
+        "lieux":["799"],  # France only
+        "statutPoste": ["143688"],  # only cadres
+        "salaireMinimum": "20",  # 20k EUR
+        "salaireMaximum": "30",  # 30k EUR
+        "typeClient": "CADRE",
+    },
+    "cadres_france_31_40k": {
+        "lieux":["799"],  # France only
+        "statutPoste": ["143688"],  # only cadres
+        "salaireMinimum": "31",  # 31k EUR
+        "salaireMaximum": "40",  # 40k EUR
+        "typeClient": "CADRE",
+    },
+    "cadres_france_41_50k": {
+        "lieux":["799"],  # France only
+        "statutPoste": ["143688"],  # only cadres
+        "salaireMinimum": "41",  # 41k EUR
+        "salaireMaximum": "50",  # 50k EUR
+        "typeClient": "CADRE",
+    },
+    "cadres_france_51_60k": {
+        "lieux":["799"],  # France only
+        "statutPoste": ["143688"],  # only cadres
+        "salaireMinimum": "51",  # 51k EUR
+        "salaireMaximum": "60",  # 60k EUR
+        "typeClient": "CADRE",
+    },
+    "cadres_france_61_70k": {
+        "lieux":["799"],  # France only
+        "statutPoste": ["143688"],  # only cadres
+        "salaireMinimum": "61",  # 61k EUR
+        "salaireMaximum": "70",  # 70k EUR
+        "typeClient": "CADRE",
+    },
+    "cadres_france_71k_plus": {
+        "lieux":["799"],  # France only
+        "statutPoste": ["143688"],  # only cadres
+        "salaireMinimum": "71",  # 71k EUR
+        "salaireMaximum": "200",  # no upper limit
         "typeClient": "CADRE",
     },
 }
