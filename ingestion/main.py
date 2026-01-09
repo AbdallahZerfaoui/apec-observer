@@ -7,7 +7,7 @@ import time, random
 
 from .client import ApecClient
 from .storage import Database
-from .config import SEARCH_CONFIGS
+from .config import SEARCH_CONFIGS, MIN_SLEEP, MAX_SLEEP
 
 
 def build_search_payload(config_name: str) -> dict[str, Any]:
@@ -94,7 +94,7 @@ if __name__ == "__main__":
         }
         if i < len(SEARCH_CONFIGS) - 1:
             # sleep a random time between 0.5 and 2 seconds to avoid rate limiting
-            sleep_time = random.uniform(0.5, 2.0)
+            sleep_time = random.uniform(MIN_SLEEP, MAX_SLEEP)
             time.sleep(sleep_time)
     
     # Save all results to database

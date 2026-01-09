@@ -13,6 +13,9 @@ HEADERS = {
 
 REQUEST_TIMEOUT = 30
 
+MIN_SLEEP = 0.5  # seconds
+MAX_SLEEP = 2.0  # seconds
+
 # Search filter configurations
 SEARCH_CONFIGS = {
     "all_jobs_france": {
@@ -29,8 +32,21 @@ SEARCH_CONFIGS = {
         "typesConvention": ["143684", "143685", "143686", "143687", "143706"],  # 706=partenaires
         "typeClient": "CADRE",
     },
+    "cadres_only_idf": {
+        "lieux":["711"],  # Ile-de-France only
+        "statutPoste": ["143688", "143689"],  # only cadres
+        "typesConvention": ["143684", "143685", "143686", "143687", "143706"],  # 706=partenaires
+        "typeClient": "CADRE",
+    },
     "cadres_only_france_lst_24h": {
         "lieux":["799"],  # France only
+        "statutPoste": ["143688", "143689"],  # only cadres
+        "typesConvention": ["143684", "143685", "143686", "143687", "143706"],  # 706=partenaires
+        "typeClient": "CADRE",
+        "anciennetePublication": "101850", # last 24 hours
+    },
+    "cades_only_idf_lst_24h": {
+        "lieux":["711"],  # Ile-de-France only
         "statutPoste": ["143688", "143689"],  # only cadres
         "typesConvention": ["143684", "143685", "143686", "143687", "143706"],  # 706=partenaires
         "typeClient": "CADRE",
@@ -43,6 +59,14 @@ SEARCH_CONFIGS = {
         "typeClient": "CADRE",
         "anciennetePublication": "101851", # last 7 days
     },
+    "cades_only_idf_lst_7d": {
+        "lieux":["711"],  # Ile-de-France only
+        "statutPoste": ["143688", "143689"],  # only cadres
+        "typesConvention": ["143684", "143685", "143686", "143687", "143706"],  # 706=partenaires
+        "typeClient": "CADRE",
+        "anciennetePublication": "101851", # last 7 days
+    },
+    # Specific convention types
     "cadres_france_entreprises": {
         "lieux":["799"],  # France only
         "statutPoste": ["143688"],  # only cadres
@@ -137,6 +161,31 @@ SEARCH_CONFIGS = {
         "statutPoste": ["143688"],  # only cadres
         "salaireMinimum": "71",  # 71k EUR
         "salaireMaximum": "200",  # no upper limit
+        "typeClient": "CADRE",
+    },
+    # Sector specific configs
+    "cadres_france_conseil_gestion_entreprise": {
+        "lieux":["799"],  # France only
+        "statutPoste": ["143688"],  # only cadres
+        "secteursActivite": ["101762"],  # 101762=conseil et gestion d'entreprise
+        "typeClient": "CADRE",
+    },
+    "cadres_france_intermediaires_recrutement": {
+        "lieux":["799"],  # France only
+        "statutPoste": ["143688"],  # only cadres
+        "secteursActivite": ["101773"],  # 101773=intermediaires en recrutement
+        "typeClient": "CADRE",
+    },
+    "cadres_france_ingenierie": {
+        "lieux":["799"],  # France only
+        "statutPoste": ["143688"],  # only cadres
+        "secteursActivite": ["101772", "101753"],  # 101772=ingenierie, R&D, 101753=IT
+        "typeClient": "CADRE",
+    },
+    "cadres_france_industrie": {
+        "lieux":["799"],  # France only
+        "statutPoste": ["143688"],  # only cadres
+        "secteursActivite": ["101756", "101774", "101759", "101766", "101779", "101765"],
         "typeClient": "CADRE",
     },
 }
